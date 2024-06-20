@@ -4,14 +4,11 @@
 
 #include "add_two_numbers/solution.hpp"
 #include "longest_unique_substring/solution.hpp"
+#include "magnetic_force_between_two_balls/solution.hpp"
 
 int main(int argc, char* argv[]) {
-  std::vector<std::string> msg{ "Hello", "C++", "World", "Leetcode examples" };
 
-  for (const std::string& word : msg) {
-    std::cout << word << " ";
-  }
-  std::cout << std::endl;
+  std::cout << "Hello Leetcode examples" << std::endl;
 
   int problem_selector = 3;
   if (argc == 2) {
@@ -24,6 +21,7 @@ int main(int argc, char* argv[]) {
       return 1;
     }
   }
+  std::cout << "-> running problem " + std::to_string(problem_selector) << std::endl;
 
   // Add two numbers
   if (problem_selector == 1) {
@@ -38,5 +36,15 @@ int main(int argc, char* argv[]) {
     std::string result = LongestUniqueSubstring::longestUniqueSubstring(input_str);
     std::cout << "The longest unique substring for '" << input_str << "' is '" << result
               << "', of size " << std::to_string(result.length()) << std::endl;
+  } else if (problem_selector == 1552) {
+    std::cout << "The result for the input bucket [79,74,57,22] w/ 4 is "
+                 + std::to_string(MagneticForceBetweenTwoBalls::idealBasketPlacement(
+                 std::vector<int>{ 79, 74, 57, 22 }, 4))
+              << std::endl;
+
+    std::cout << "The result for the input bucket [1,2,3,4,7] w/ 3 is "
+                 + std::to_string(MagneticForceBetweenTwoBalls::idealBasketPlacement(
+                 std::vector<int>{ 1, 2, 3, 4, 7 }, 3))
+              << std::endl;
   }
 }
